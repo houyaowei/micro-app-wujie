@@ -11,7 +11,7 @@ module.exports = {
       "Access-Control-Allow-Headers": "*",
       "Access-Control-Allow-Methods": "*",
     },
-    port: "7200",
+    port: "3102",
   },
   transpileDependencies: [
     "sockjs-client",
