@@ -10,8 +10,8 @@ import './assets/main.css'
 import appEntry from "./wujie-config/app.config"
 import lifecycles from './wujie-config/lifecycle';
 
-
-appEntry.apps.forEach((item)=> {
+const subApps = appEntry.apps;
+subApps.forEach((item)=> {
 	setupApp({
 		name: item.name,
 		url: item.enty,
@@ -31,11 +31,11 @@ app.mount('#app')
 
 //启动预加载
 if(import.meta.env.VITE_MICRO_APP_PREFETCH){
-  apps.forEach(item => {
-    const { name , entry } = item
+  subApps.forEach(item => {
+    const { name,entry } = item
     preloadApp({
-      name,
-      url: ''
+      name: `/${name}`,
+      url: entry
     })
   })
 }

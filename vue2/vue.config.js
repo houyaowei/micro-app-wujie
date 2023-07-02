@@ -1,10 +1,11 @@
-// vue.config.js
+const pkg = require("./package.json")
 
 /**
  * @type {import('@vue/cli-service').ProjectOptions}
  */
 module.exports = {
   publicPath: "./",
+  outputDir: `./${pkg.name}`,
   devServer: {
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -15,5 +16,5 @@ module.exports = {
   },
   transpileDependencies: [
     "sockjs-client",
-  ],
+  ]
 };

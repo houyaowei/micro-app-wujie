@@ -10,7 +10,7 @@ let _apps =[];
 
 const buildAppconfig = ()=> {
   for(const _key in import.meta.env) {
-    console.log('_key:', _key)
+    // console.log('_key:', _key)
     if(_key.includes('MICRO_APP_SUB_')) {
       const name = _key.split('MICRO_APP_SUB_')[1];
       const _name = name.replace(/\_/g, '-').toLowerCase()

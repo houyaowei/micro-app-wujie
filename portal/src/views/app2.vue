@@ -1,11 +1,16 @@
 <template>
 	<div>
-		<WujieVue width="100%" height="100%" name="app2" :url="appUrl"></WujieVue>
+		<WujieVue width="100%" height="100%" :name="appName" :url="appUrl"></WujieVue>
 	</div>
 </template>
 
 <script setup>
-	const appUrl = "//localhost:3102"
+	import { ref } from "vue"
+	import { getCurrentAppEntry } from "@/utils/app"
+	const appUrl = ref("")
+	const appName= "app2"
+	appUrl.value = getCurrentAppEntry(appName)
+
 </script>
 
 
