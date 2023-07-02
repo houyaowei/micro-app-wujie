@@ -5,6 +5,10 @@
 </template>
 
 <script setup>
+	import pkg from "../../package.json"
+
+	console.log("app1.vue:", pkg.name)
+	
 	const appUrl = "//localhost:3101"
 </script>
 

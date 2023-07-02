@@ -13,7 +13,7 @@ export default defineConfig({
     }
   },
   server: {
-    port: 3100,
-    origin: 'http://localhost:3100'
+    port: 3110,
+    origin: 'http://localhost:3110'
   }
 })

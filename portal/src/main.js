@@ -15,9 +15,9 @@ appEntry.apps.forEach((item)=> {
 	setupApp({
 		name: item.name,
 		url: item.enty,
-		exec: true,
+		exec: true, //默认执行
 		sync: true,
-		alive: true,
+		alive: true, //默认保活
 		...lifecycles
 	})
 })
