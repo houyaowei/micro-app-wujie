@@ -1,10 +1,10 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+console.log("props from 基座：", window.$wujie?.props)
 </script>
 
 <template>
-  <div style="display: flex;justify-content: space-between;">
+  <div style="display: flex;justify-content: space-around;">
     <header>
       <div class="wrapper">
         <h3>App1(Vue3)</h3>

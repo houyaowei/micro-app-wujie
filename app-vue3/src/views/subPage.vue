@@ -1,15 +1,11 @@
 <script setup>
-import subPage from "./subPage.vue"
+  const data = window.$wujie?.props
 </script>
 
 <template>
   <div>
-    <h1>
-        this is home page  
-    </h1>
-    <sub-page></sub-page>
+      子页面,来自基座的数据 <span style="color: red;">{{ data.appName }}</span>  
   </div>
-  
 </template>
 
 <style scoped>

@@ -1,17 +1,21 @@
 <script setup>
-import { RouterLink, RouterView , useRouter} from 'vue-router'
-import { startApp } from "wujie"
+import { computed } from "vue"
+import { RouterView , useRouter} from 'vue-router'
+import { useAppStore }  from '@/stores/app'
 const router = useRouter()
+const store = useAppStore()
+
+const appName = computed(()=> store.getAppName())
 
 function goToPage(url) {
-  //TODO:  startApp和pushState加载应用都有问题.  startApp不能加载很奇怪，path前多个？ 
-
+  //TODO:  startApp和pushState加载应用都有问题.  startApp不能加载很奇怪
   // startApp({
   //   name: url
   // })
   // history.pushState(null, '', url)
   router.replace(url)
-
+  
+  store.setAppName(url)
 }
 </script>
 
@@ -22,6 +26,7 @@ function goToPage(url) {
     <router-link to="/app2">切到App2(Vue3+ts)</router-link> -->
     <div style="color: hsla(160, 100%, 37%, 1);cursor: pointer; margin-right: 40px;" @click="goToPage('app2')">切到App2(Vue3+ts)</div>
     <div style="color: hsla(160, 100%, 37%, 1);cursor: pointer; " @click="goToPage('/react')">切到App3(React)</div> 
+    <div style="float: right;"> 当前App: <span style="color: red">{{ appName }}</span></div>
   </header>
 
   <RouterView />
@@ -66,8 +71,7 @@ function goToPage(url) {
   @media (min-width: 1024px) {
     header {
       display: flex;
-      place-items: center;
-      padding-right: calc(var(--section-gap) / 2);
+      justify-content: space-around;
     }
 
     .logo {

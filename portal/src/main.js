@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { setupApp, preloadApp } from "wujie"
 import WujieVue from 'wujie-vue3';
+
 import App from './App.vue'
 import router from './router'
 import './assets/main.css'
