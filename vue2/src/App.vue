@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { bus } from "wujie"
 export default {
   watch: {
     // 在 vue2-sub 路由下主动告知主应用路由跳转，主应用也跳到相应路由高亮菜单栏
@@ -16,5 +17,13 @@ export default {
       window.$wujie?.bus.$emit("sub-route-change", "vue2", this.$route.path);
     },
   },
+  mounted: function() {
+    bus.$on('app:unload',(arg1)=> {
+      alert("来自基座的数据:",arg1)
+    })
+  },
+  methods: {
+
+  }
 };
 </script>

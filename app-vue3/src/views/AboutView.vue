@@ -7,7 +7,11 @@
   </div>
 </template>
 <script setup>
+  import { bus } from "wujie";
   const data = window.$wujie?.props
+  bus.$on('hello:app1',(arg1)=> {
+    alert("来自基座的数据:",arg1)
+  })
 </script>
 <style>
 

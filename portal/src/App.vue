@@ -2,6 +2,9 @@
 import { computed } from "vue"
 import { RouterView , useRouter} from 'vue-router'
 import { useAppStore }  from '@/stores/app'
+//第二种通信方式，event-bus
+import WujieVue from "wujie-vue3";
+const { bus } = WujieVue;
 const router = useRouter()
 const store = useAppStore()
 
@@ -17,6 +20,19 @@ function goToPage(url) {
   
   store.setAppName(url)
 }
+bus.$on('property:change', (arg1,arg2)=> {
+  console.log('来自子应用的:', arg1, arg2)
+})
+
+/**
+ * 注意：子应用加载才能收到消息,如果路由没激活也收不到
+ */
+function sendMessage() {
+  bus.$emit('app:unload', appName)
+}
+function sendApp1Message(){
+  bus.$emit('hello:app1', appName)
+}
 </script>
 
 <template>
@@ -27,6 +43,10 @@ function goToPage(url) {
     <div style="color: hsla(160, 100%, 37%, 1);cursor: pointer; margin-right: 40px;" @click="goToPage('app2')">切到App2(Vue3+ts)</div>
     <div style="color: hsla(160, 100%, 37%, 1);cursor: pointer; " @click="goToPage('/react')">切到App3(React)</div> 
     <div style="float: right;"> 当前App: <span style="color: red">{{ appName }}</span></div>
+    <div>
+      <button @click="sendApp1Message">点击给已加载的App1发消息</button>
+      <button @click="sendMessage">点击给未加载的App2发消息</button>
+    </div>
   </header>
 
   <RouterView />

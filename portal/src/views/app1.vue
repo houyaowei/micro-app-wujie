@@ -13,7 +13,7 @@
 	const appName= "app1"
 	appUrl.value = getCurrentAppEntry(appName)
 
-	//子应用参数传参
+	//子应用props传参
 
 
 </script>
