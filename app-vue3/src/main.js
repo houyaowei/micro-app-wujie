@@ -8,7 +8,6 @@ import routes from './router'
 import './assets/main.css'
 
 if (window.__POWERED_BY_WUJIE__) {
-  console.log("app1: ",window.__POWERED_BY_WUJIE__)
   const basename = window.__POWERED_BY_WUJIE__ ? "app1" : "/";
 
   let instance;

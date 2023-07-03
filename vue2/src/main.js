@@ -14,7 +14,7 @@ import AButton from "ant-design-vue/es/button";
 import ASelect from "ant-design-vue/es/select";
 import AModal from "ant-design-vue/es/modal";
 import APopover from "ant-design-vue/es/popover";
-import "./pageLifeTest";
+// import "./pageLifeTest";
 import "element-ui/lib/theme-chalk/base.css";
 import "element-ui/lib/theme-chalk/tag.css";
 import "element-ui/lib/theme-chalk/button.css";
@@ -29,7 +29,7 @@ import "ant-design-vue/es/modal/style/index.css";
 import "ant-design-vue/es/popover/style/index.css";
 import "./index.css";
 
-const base = process.env.NODE_ENV === "production" ? "/demo-vue2/" : "";
+const base = window.__POWERED_BY_WUJIE__ ? "app2" : "";
 
 [Tag, Button, Select, Option, Popover, Dialog].forEach((element) => Vue.use(element));
 [AButton, ASelect, AModal, APopover].forEach((element) => Vue.use(element));
@@ -41,7 +41,13 @@ Vue.config.productionTip = false;
 if (window.__POWERED_BY_WUJIE__) {
   let instance;
   window.__WUJIE_MOUNT = () => {
-    const router = new VueRouter({ base, routes });
+    console.log("app2 mount invoke!!!!")
+    const router = new VueRouter({ 
+      mode: 'history',
+      base, 
+      routes
+    });
+    Vue.prototype.router= router;
     instance = new Vue({ router, render: (h) => h(App) }).$mount("#app");
   };
   window.__WUJIE_UNMOUNT = () => {

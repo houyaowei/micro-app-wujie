@@ -7,8 +7,8 @@ window.addEventListener("DOMContentLoaded", () => {
   console.log("vue2 window DOMContentLoaded trigger");
 });
 
-document.onreadystatechange = function () {
-  console.log("vue2 document onreadystatechange trigger");
+document.onreadystatechange = function (url) {
+  console.log("vue2 document onreadystatechange trigger:", url);
 };
 
 document.addEventListener("readystatechange", () => {

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<WujieVue width="100%" height="100%" :name="appName" :url="appUrl"></WujieVue>
+		<WujieVue width="100%" height="100%" :name="appName" :url="appUrl" :sync="true"></WujieVue>
 	</div>
 </template>
 

@@ -21,8 +21,6 @@ const buildAppconfig = ()=> {
       _apps.push(obj);
     }
   }
-  console.log("app.config.js:", new Date().getTime(), ', apps:', _apps)
-
   return _apps
 }
 

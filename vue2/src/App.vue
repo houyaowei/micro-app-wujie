@@ -12,12 +12,21 @@
 import { bus } from "wujie"
 export default {
   watch: {
-    // 在 vue2-sub 路由下主动告知主应用路由跳转，主应用也跳到相应路由高亮菜单栏
-    $route() {
-      window.$wujie?.bus.$emit("sub-route-change", "vue2", this.$route.path);
+    "$route.params.path": {
+      handler: function () {
+        console.log("location:", decodeURIComponent(parent.location.href))
+        // wujieVue.bus.$emit("vue3-router-change", `/${this.$route.params.path}`);
+      },
+      immediate: true,
     },
   },
   mounted: function() {
+    const params = new URL(decodeURIComponent(parent.location.href)).searchParams;
+    const subRouter = params.get("subRouter")
+    this.$router.push(subRouter)
+
+
+
     bus.$on('app:unload',(arg1)=> {
       alert("来自基座的数据:",arg1)
     })

@@ -5,6 +5,11 @@
   function sendMsg() {
     bus.$emit('property:change', 'homeview.vue',pageName)
   }
+
+  function jumpTo(){
+    window.$wujie?.props.jump({ path: "/app2", query: { subRouter: "/dialog" } });
+    // window.$wujie?.bus.$emit("routeChange", "/app2/dialog");
+  }
 </script>
 
 <template>
@@ -14,6 +19,7 @@
     </h1>
     <button @click="sendMsg">点击给基座发消息</button>
     <sub-page></sub-page>
+    <button @click="jumpTo">点击跳转到app2</button>
   </div>
   
 </template>
