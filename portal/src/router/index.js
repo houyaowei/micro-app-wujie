@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import App1 from '../views/app1.vue'
 import App2 from '../views/app2.vue'
+import React from '../views/react.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,6 +13,10 @@ const router = createRouter({
     {
       path: '/app2',
       component: App2
+    },
+    {
+      path: '/react',
+      component: React
     }
   ]
 })
