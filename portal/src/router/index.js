@@ -3,6 +3,8 @@ import App1 from '../views/app1.vue'
 import App2 from '../views/app2.vue'
 import React from '../views/react.vue'
 
+//主应用是history模式
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [

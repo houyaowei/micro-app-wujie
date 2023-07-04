@@ -21,8 +21,10 @@ export default {
     },
   },
   mounted: function() {
+    console.log("vue2 location:", decodeURIComponent(parent.location.href))
     const params = new URL(decodeURIComponent(parent.location.href)).searchParams;
     const subRouter = params.get("subRouter")
+    console.log("subRouter:",subRouter)
     this.$router.push(subRouter)
 
 

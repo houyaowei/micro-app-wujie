@@ -29,7 +29,7 @@ import "ant-design-vue/es/modal/style/index.css";
 import "ant-design-vue/es/popover/style/index.css";
 import "./index.css";
 
-const base = window.__POWERED_BY_WUJIE__ ? "app2" : "";
+const base = window.__POWERED_BY_WUJIE__ ? "app2" : "app2";
 
 [Tag, Button, Select, Option, Popover, Dialog].forEach((element) => Vue.use(element));
 [AButton, ASelect, AModal, APopover].forEach((element) => Vue.use(element));
@@ -43,7 +43,6 @@ if (window.__POWERED_BY_WUJIE__) {
   window.__WUJIE_MOUNT = () => {
     console.log("app2 mount invoke!!!!")
     const router = new VueRouter({ 
-      mode: 'history',
       base, 
       routes
     });
@@ -54,5 +53,8 @@ if (window.__POWERED_BY_WUJIE__) {
     instance.$destroy();
   };
 } else {
-  new Vue({ router: new VueRouter({ base, routes }), render: (h) => h(App) }).$mount("#app");
+  new Vue({ router: new VueRouter({ 
+    base, 
+    routes 
+  }), render: (h) => h(App) }).$mount("#app");
 }
