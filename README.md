@@ -15,8 +15,8 @@
 
 - Portal： vue3+vite+router@4+pinia
 - app-vue3: vue3+vite+router@4+pinia
-- vue2 : vue2+ webpack+ router@3
-- react：子应用待实现
+- vue2 : vue2+webpack+ router@3
+- react：vite+React@18+zustand
 
 <br/>
 
